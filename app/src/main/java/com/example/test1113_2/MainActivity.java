@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
 
                 fos.close();
-                imageView.setImageBitmap(bitmap);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
