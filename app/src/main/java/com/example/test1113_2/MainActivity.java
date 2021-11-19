@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.net.URL;
@@ -34,9 +36,11 @@ public class MainActivity extends AppCompatActivity {
 
         verifyStoragePermissions(this);
 
+        Picasso.get().load("https://raw.githubusercontent.com/square/picasso/master/website/static/sample.png").into(imageView);
+
         //MyTask task = new MyTask();
-        MyTaskInternet task = new MyTaskInternet();
-        task.execute("https://memepedia.ru/wp-content/uploads/2018/09/orehus-stiker.png");
+//        MyTaskInternet task = new MyTaskInternet();
+//        task.execute("https://memepedia.ru/wp-content/uploads/2018/09/orehus-stiker.png");
     }
 
 
