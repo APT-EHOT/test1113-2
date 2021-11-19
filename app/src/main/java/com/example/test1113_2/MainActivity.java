@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected Bitmap doInBackground(String... strings) {
-            Bitmap bitmap = null;
+            Bitmap bitmap;
             try {
                 URL url = new URL(strings[0]);
                 bitmap = BitmapFactory.decodeStream(url.openStream());
@@ -69,7 +69,18 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Bitmap bitmap) {
-
+            Bitmap b;
+            File file = new File(Environment.getExternalStorageDirectory().getAbsoluteFile(), "downloadedfile.png");
+            if (file.isFile()) {
+                try {
+                    b = BitmapFactory.decodeFile(file.getAbsolutePath());
+                    imageView.setImageBitmap(b);
+                    progressBar.setVisibility(View.INVISIBLE);
+                    imageView.setVisibility(View.VISIBLE);
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
